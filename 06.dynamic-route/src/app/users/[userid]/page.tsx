@@ -1,10 +1,10 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { use, useEffect } from 'react';
+import { useEffect } from 'react';
 
-const UserDetail = ({ params }: { params: { userid: string } }) => {
-  const { userid } = use(params);
+const UserDetail = async ({ params }: { params: { userid: string } }) => {
+  const { userid } = await params;
   const users = [1, 2, 3, 4, 5, 6];
   const router = useRouter();
 

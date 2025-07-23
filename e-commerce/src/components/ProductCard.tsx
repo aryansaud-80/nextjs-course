@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: propsType }) => {
   const imageSrc =
     typeof product.image === 'string' ? product.image : product.image.src;
   return (
-    <div className='bg-white rounded-2xl flex flex-col gap-6 w-[300px] overflow-hidden hover:scale-105 hover:shadow-md transition-all duration-300 shadow-sm'>
+    <div className='bg-white rounded-2xl flex flex-col gap-6  overflow-hidden hover:-translate-y-2 hover:shadow-md transition-all duration-300 shadow-sm max-w-[300px]'>
       <div className='flex-1/2'>
         <Image
           src={imageSrc}
@@ -35,7 +35,7 @@ const ProductCard = ({ product }: { product: propsType }) => {
           </p>
         </div>
 
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between sm:items-center max-sm:flex-col  '>
           <div className='flex gap-2 items-center'>
             <span className='text-emerald-700 text-xl font-bold'>
               Rs. {product.price}

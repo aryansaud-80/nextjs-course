@@ -1,5 +1,8 @@
+'use client';
+
 import { Check } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface propsType {
   id: number;
@@ -15,6 +18,12 @@ interface propsType {
 const ProductCard = ({ product }: { product: propsType }) => {
   const imageSrc =
     typeof product.image === 'string' ? product.image : product.image.src;
+
+  const router = useRouter();
+
+  const navigate = (url: string) => {
+    router.push(url);
+  };
   return (
     <div className='bg-white rounded-2xl flex flex-col gap-6  overflow-hidden hover:-translate-y-2 hover:shadow-md transition-all duration-300 shadow-sm max-w-[300px]'>
       <div className='flex-1/2'>
@@ -46,13 +55,16 @@ const ProductCard = ({ product }: { product: propsType }) => {
           </div>
 
           <div className='text-gray-400 flex gap-2 items-center'>
-            <Check className='h-4 w-4 text-emerald-600'/>
+            <Check className='h-4 w-4 text-emerald-600' />
             In Stock
           </div>
         </div>
 
         <div className='flex flex-col gap-3'>
-          <button className='bg-emerald-600 py-2  text-white font-semibold rounded-xl hover:scale-105 hover:shadow-md transition-all duration-300 hover:bg-emerald-700'>
+          <button
+            className='bg-emerald-600 py-2  text-white font-semibold rounded-xl hover:scale-105 hover:shadow-md transition-all duration-300 hover:bg-emerald-700'
+            onClick={() => navigate(`/product/${product.id}`)}
+          >
             View Details
           </button>
 

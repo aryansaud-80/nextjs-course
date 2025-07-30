@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+
+.txt {
+  font-size: 300px;
+  height: 350px;
+}
